@@ -14,4 +14,13 @@ export class Getter {
         console.log(err);
       });
   }
+  getId(id: string) {
+    return fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${APIkey}`)
+      .then((res: any) => {
+        return res.json();
+      })
+      .catch((err: Object) => {
+        console.log(err);
+      });
+  }
 }

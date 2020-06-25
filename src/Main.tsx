@@ -42,7 +42,6 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       dataApi.getPopular().then((data: any) => {
-        console.log(data);
         setData(data.results);
       });
     };
