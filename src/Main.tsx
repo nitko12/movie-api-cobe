@@ -7,6 +7,7 @@ import GlobalNavbar from "./components/GlobalNavbar";
 import Button from "@material-ui/core/Button";
 import Fab from "@material-ui/core/Fab";
 import ShuffleIcon from "@material-ui/icons/Shuffle";
+import { withRouter } from "react-router-dom";
 
 const dataApi = new Getter();
 
@@ -35,7 +36,7 @@ const useStyles = makeStyles({
   },
 });
 
-function App() {
+function App(props: any) {
   const classes = useStyles();
   const [data, setData] = useState(new Array());
 
@@ -61,6 +62,9 @@ function App() {
         {data.map((item: any) => (
           <div>
             <FilmCard
+              onclick={() => {
+                props.history.push(`/info/${item.id}`);
+              }}
               rating={item.vote_average}
               title={item.title}
               img={item.backdrop_path}
@@ -81,4 +85,4 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);

@@ -24,6 +24,7 @@ export default function ImgMediaCard(props: {
   title: string;
   img: string;
   lang: string;
+  onclick: Function;
 }) {
   const classes = useStyles();
 
@@ -34,7 +35,7 @@ export default function ImgMediaCard(props: {
         badgeContent={<span className={classes.badgeText}>{props.rating}</span>}
         color="primary"
       >
-        <Card className={classes.root}>
+        <Card className={classes.root} onClick={() => props.onclick()}>
           <CardActionArea>
             <FadeIn transitionDuration={600}>
               <div>

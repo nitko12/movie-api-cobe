@@ -12,7 +12,9 @@ import { Getter } from "./scripts/dataApi";
 import FadeIn from "react-fade-in";
 import Grid from "@material-ui/core/Grid";
 import Rating from "@material-ui/lab/Rating";
+import Cookies from "universal-cookie";
 
+const cookies = new Cookies();
 const dataApi = new Getter();
 
 const useStyles = makeStyles({
@@ -41,6 +43,8 @@ const useStyles = makeStyles({
   },
   grid: {
     flex: 1,
+    justifyContent: "center",
+    alignContent: "center",
     marginTop: "15px",
     height: "100%",
   },
@@ -55,23 +59,37 @@ function Info(props: any) {
     overview: String,
     original_title: String,
     popularity: Number,
-    vote_average: 0,
     original_language: String,
+    production_companies: [{ name: String }],
   });
+
+  const [value, setValue] = useState<number | null>(2);
 
   useEffect(() => {
     const fetchData = async () => {
       dataApi.getId(id).then((newData: any) => {
+        if (cookies.get("rating"))
+          newData.vote_average = parseFloat(cookies.get("rating"));
+        setValue(newData.vote_average);
         setData(newData);
       });
     };
     fetchData();
   }, []);
 
+  const rateHandler = (e: any, v: any) => {
+    setData((prev) => {
+      let newData = prev;
+      setValue(v);
+      return newData;
+    });
+    cookies.set("rating", v);
+  };
+
   return (
     <Card className={classes.card}>
       <CardActionArea className={classes.desc}>
-        <FadeIn>
+        <FadeIn transitionDuration={1000} delay={300}>
           <div>
             <CardMedia
               component="img"
@@ -81,30 +99,38 @@ function Info(props: any) {
               title="image"
             />
           </div>
+          <div>
+            <CardContent className={classes.desc}>
+              <Typography gutterBottom variant="h5" component="h2">
+                {data.original_title}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                {data.overview}
+                <Grid className={classes.grid} container spacing={1}>
+                  <Grid container item xs={3} spacing={1}>
+                    <Rating
+                      name="hover-feedback"
+                      value={value}
+                      onChange={rateHandler}
+                      max={10}
+                      precision={0.25}
+                    />
+                  </Grid>
+                  <Grid container item xs={3} spacing={1}>
+                    Popularity: {data.popularity}
+                  </Grid>
+                  <Grid container item xs={3} spacing={1}>
+                    Language: {data.original_language}
+                  </Grid>
+                  <Grid container item xs={3} spacing={1}>
+                    Production companies:{" "}
+                    {data.production_companies.map((i) => i.name).join(", ")}
+                  </Grid>
+                </Grid>
+              </Typography>
+            </CardContent>
+          </div>
         </FadeIn>
-        <CardContent className={classes.desc}>
-          <Typography gutterBottom variant="h5" component="h2">
-            {data.original_title}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {data.overview}
-            <Grid className={classes.grid} container spacing={1}>
-              <Grid container item xs={3} spacing={1}>
-                <Rating
-                  name="hover-feedback"
-                  value={data.vote_average / 2}
-                  precision={0.5}
-                />
-              </Grid>
-              <Grid container item xs={3} spacing={1}>
-                Popularity: {data.popularity}
-              </Grid>
-              <Grid container item xs={3} spacing={1}>
-                Language: {data.original_language}
-              </Grid>
-            </Grid>
-          </Typography>
-        </CardContent>
       </CardActionArea>
     </Card>
   );
