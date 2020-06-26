@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/movie-api-cobe/static/css/main.82c03821.chunk.css",
-    "main.js": "/movie-api-cobe/static/js/main.80400f7e.chunk.js",
-    "main.js.map": "/movie-api-cobe/static/js/main.80400f7e.chunk.js.map",
+    "main.js": "/movie-api-cobe/static/js/main.92f7c5b4.chunk.js",
+    "main.js.map": "/movie-api-cobe/static/js/main.92f7c5b4.chunk.js.map",
     "runtime-main.js": "/movie-api-cobe/static/js/runtime-main.9150e6b4.js",
     "runtime-main.js.map": "/movie-api-cobe/static/js/runtime-main.9150e6b4.js.map",
     "static/js/2.15f284f6.chunk.js": "/movie-api-cobe/static/js/2.15f284f6.chunk.js",
     "static/js/2.15f284f6.chunk.js.map": "/movie-api-cobe/static/js/2.15f284f6.chunk.js.map",
     "index.html": "/movie-api-cobe/index.html",
-    "precache-manifest.967979a30ed8902088d69aebc674c877.js": "/movie-api-cobe/precache-manifest.967979a30ed8902088d69aebc674c877.js",
+    "precache-manifest.bf9c79ee879c029fbe00f33d6d9405a8.js": "/movie-api-cobe/precache-manifest.bf9c79ee879c029fbe00f33d6d9405a8.js",
     "service-worker.js": "/movie-api-cobe/service-worker.js",
     "static/css/main.82c03821.chunk.css.map": "/movie-api-cobe/static/css/main.82c03821.chunk.css.map",
     "static/js/2.15f284f6.chunk.js.LICENSE.txt": "/movie-api-cobe/static/js/2.15f284f6.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.9150e6b4.js",
     "static/js/2.15f284f6.chunk.js",
     "static/css/main.82c03821.chunk.css",
-    "static/js/main.80400f7e.chunk.js"
+    "static/js/main.92f7c5b4.chunk.js"
   ]
 }

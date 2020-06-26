@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/movie-api-cobe/precache-manifest.967979a30ed8902088d69aebc674c877.js"
+  "/movie-api-cobe/precache-manifest.bf9c79ee879c029fbe00f33d6d9405a8.js"
 );
 
 self.addEventListener('message', (event) => {
