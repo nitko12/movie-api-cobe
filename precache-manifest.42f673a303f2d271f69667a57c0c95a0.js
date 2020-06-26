@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f41d50631d5c0ede5f00ed457b11f8aa",
+    "revision": "db123c1d6435869401a7b48bafa33056",
     "url": "/movie-api-cobe/index.html"
   },
   {
-    "revision": "e2bc312fea045d0bef9b",
+    "revision": "b4d201c7d4874d68d44e",
     "url": "/movie-api-cobe/static/css/main.82c03821.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/movie-api-cobe/static/js/2.15f284f6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e2bc312fea045d0bef9b",
-    "url": "/movie-api-cobe/static/js/main.92f7c5b4.chunk.js"
+    "revision": "b4d201c7d4874d68d44e",
+    "url": "/movie-api-cobe/static/js/main.bf40b157.chunk.js"
   },
   {
     "revision": "5642aa345b4b27a05d5a",
