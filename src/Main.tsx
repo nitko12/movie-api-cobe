@@ -5,9 +5,9 @@ import { Getter } from "./scripts/dataApi";
 import { makeStyles } from "@material-ui/core/styles";
 import GlobalNavbar from "./components/GlobalNavbar";
 import Button from "@material-ui/core/Button";
-import Fab from "@material-ui/core/Fab";
-import ShuffleIcon from "@material-ui/icons/Shuffle";
+
 import { withRouter } from "react-router-dom";
+import Modal from "./components/Modal";
 
 const dataApi = new Getter();
 
@@ -28,11 +28,6 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
     paddingBlockEnd: "30px",
-  },
-  fab: {
-    position: "fixed",
-    bottom: "25px",
-    right: "25px",
   },
 });
 
@@ -78,9 +73,8 @@ function App(props: any) {
           Load more
         </Button>
       </div>
-      <Fab color="primary" aria-label="random" className={classes.fab}>
-        <ShuffleIcon />
-      </Fab>
+
+      <Modal onRoll={(id: string) => props.history.push(`/info/${id}`)} />
     </div>
   );
 }

@@ -23,4 +23,26 @@ export class Getter {
         console.log(err);
       });
   }
+  getGenres() {
+    return fetch(
+      `https://api.themoviedb.org/3/genre/movie/list?api_key=${APIkey}&language=en-US`
+    )
+      .then((res: any) => {
+        return res.json();
+      })
+      .catch((err: Object) => {
+        console.log(err);
+      });
+  }
+  getGenreId(genreId: String) {
+    return fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${APIkey}&with_genres=${genreId}&language=en-US`
+    )
+      .then((res: any) => {
+        return res.json();
+      })
+      .catch((err: Object) => {
+        console.log(err);
+      });
+  }
 }
